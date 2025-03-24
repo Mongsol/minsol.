@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclution -Voice Cloning-</title>
+    <style>
+        * {
+            font-family: 'Cambria';
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #D98324;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        body {
+            background: #F2F6D0;
+        }
+        .app {
+            background: #EFDCAB;
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto 0;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            padding: 30px
+        }
+        .app h1{
+            font-size: 30px;
+            color: #443627;
+            font-weight: 600;
+            border-bottom: 1px solid #443627;
+            padding-bottom: 30px;
+        }
+        .quiz{
+            padding: 10px 0;
+        }s
+        .quiz h2{
+            font-size: 22px;
+            color: #443627;
+            font-weight: 600;
+        }
+        .btn{
+            background: #F2F6D0;
+            color:#443627;
+            font-weight: 500;
+            font-size: 17px;
+            width: 100%;
+            border: 1px solid #D98324;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: left;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s
+        }
+        .btn:hover:not([disabled]){
+            background:#D98324;
+            color: #222;
+        }
+        .btn:disabled{
+            cursor: no-drop;
+        }
+        #next-btn{
+            background:#443627;
+            color: #fff;
+            font-weight: 500;
+            width: 150px;
+            border: 0;
+            padding: 10px;
+            margin: 20px auto 0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: none;
+        }
+        .correct{
+            background: #96f8c1;
+        }
+        .incorrect{
+            background: #ffa0a0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coclution -Voice Cloning-</h1><a id="top"></a>
+        <hr noshade color="#fff" width="90%" size="2px">
+        <nav>
+             <p>Let's review about the information from our website with <b><i>Quiz!!</i></b></b></p>
+        </nav>
+    </header>
+    <div class="app">
+        <h1>Rap up Quiz</h1>
+        <div class="quiz">
+            <h2 id="question">Question goes here</h2>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+*{
+    background-image: url(computer-image-of-a-person-speaking.webp);
+}
+*{
+    box-sizing: border-box;
+    margin: 10;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* Style the top navigation bar */
+.navbar {
+    overflow: hidden; /* Hide overflow */
+  }
+  
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left; /* Make sure that the links stay side-by-side */
+    display: block; /* Change the display to block, for responsive reasons (see below) */
+    color: white; /* White text color */
+    text-align: center; /* Center the text */
+    padding: 16px 30px; /* Add some padding */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  /* Right-aligned link */
+  .navbar a.right {
+    float: right; /* Float a link to the right */
+  }
+  
+  /* Change color on hover/mouse-over */
+  .navbar a:hover {
+    color: rgb(0, 0, 0); /* Black text color */
+  }
+nav {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem calc((100vw - 1300px)/2);
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 01.5rem; 
+}
+
+
+
+
+.column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: rgb(255, 255, 255);
+    padding: 4rem 3rem;
+}
+
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+
+
+.column-left h1 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+}
+
+.column-left p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+button {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: none;
+    color: #ffffff;
+    background-color: rgb(121, 242, 255);
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+
+.column-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 2rem; 
+}
+
+
+@media screen and (max-width: 768px){
+    .hero-container{
+        grid-template-columns: 1fr;
+    }
+}
+

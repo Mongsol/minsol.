@@ -1,0 +1,126 @@
+const questions = [
+    {
+        question: "How can AI clone your voice?",
+        answers: [
+            { text: "By uploading your photo.", correct: false},
+            { text: "By recording and uploading your voice sample.", correct: true},
+            { text: "By keying your personal information in.", correct: false},
+            { text: "AI can clone your voice by themselves.", correct: false},
+        ]
+    },
+    {
+        question: "Which is not the example of popular AI scams?",
+        answers: [
+            { text: "AI chatbot scams", correct: false},
+            { text: "AI-Powered Social media bots", correct: false},
+            { text: "AI scoring karaoke", correct: true},
+            { text: "AI-Driven Investment Scams", correct: false},
+        ]
+    },
+    {
+        question: "What do deepfakes use to create lifelike representation o people?",
+        answers: [
+            { text: "Machine learning algorithms", correct: true},
+            { text: "People's social media profiles", correct: false},
+            { text: "Software engeneers' brain", correct: false},
+            { text: "Their originality", correct: false},
+        ]
+    },
+    {
+        question: "Which senstence is not true to protect ourselves from AI voice cloning?",
+        answers: [
+            { text: "Verify caller ID.", correct: false},
+            { text: "Keep a safe and unique password.", correct: false},
+            { text: "Use technology safeguards.", correct: false},
+            { text: "Upload your voice to social media offten.", correct: true},
+        ]
+    },
+];
+ 
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+ 
+let currentQuestionIndex = 0;
+let score = 0;
+ 
+function startQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+ 
+function showQuestion(){
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+ 
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+    });
+}
+ 
+ 
+function resetState(){
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild)
+    }
+}
+ 
+function selectAnswer(e){
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if(isCorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+    }else{
+        selectedBtn.classList.add("incorrect");
+    }
+    Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === "true"){
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
+}
+ 
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    nextButton.innerHTML = "Try Again";
+    nextButton.style.display = "block";
+}
+ 
+ 
+ 
+function handleNextButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
+ 
+ 
+nextButton.addEventListener("click", ()=> {
+    if(currentQuestionIndex < questions.length){
+        handleNextButton();
+    }else{
+        startQuiz();
+    }
+    }
+);
+startQuiz();
+ 
